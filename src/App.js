@@ -1,16 +1,18 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
+import { fetchRestaurants } from './utils';
+import Restaurants from './Restaurants';
 
 function App() {
+  const [restaurants, setRestaurants] = useState(null)
+  useEffect(()=>{
+    fetchRestaurants()
+      .then(setRestaurants)
+      .catch(()=>console.log("error in fetching"))
+  })
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <h2>Welcome to Jest Tutorial</h2>
-      </header>
-      <div className="App-content">
-        
-      </div>
-    </div>
+    <Restaurants list={restaurants}/>
   );
 }
 
