@@ -27,9 +27,7 @@ describe("Restaurants Component", ()=>{
         const inpDistance = getByTestId('inpDistance')
         // fire change event on inpDistance to set distance
         fireEvent.change(inpDistance, {target:{value: 100}})
-        // fire submit event of form to trigger filter
-        fireEvent.submit(inpDistance.parentElement)
-
+        
         expect(queryAllByText(/Restaurant\d/).length).toBe(3)
     })
 })
