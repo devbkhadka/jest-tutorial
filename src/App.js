@@ -9,7 +9,7 @@ function App() {
     fetchRestaurants()
       .then(setRestaurants)
       .catch(()=>console.log("error in fetching"))
-  })
+  }, [])
 
   return (
     <Restaurants list={restaurants}/>
